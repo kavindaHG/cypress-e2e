@@ -1,0 +1,16 @@
+name: Regression E2E Tests
+on: push
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v5
+        with:
+          command: npm run test:addToCart
+          browser: chrome   # optional: can be chrome, firefox, electron
+          headed: false     # optional: default is false
