@@ -1,5 +1,6 @@
 name: Regression E2E Tests
-on: push #When a push event occurs, actions will be triggered
+on: push
+
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -7,5 +8,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Cypress run
-        run: cypress-io/github-action@v5
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome   # optional: can be chrome, firefox, electron
+          headed: false     # optional: default is false
